@@ -12,6 +12,18 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'index', @controller.action_name
   end
 
+  test "notes#new should be successful" do
+    get new_note_url
+    assert_response :success
+  end
+
+  test "notes#create should create a note" do
+    note_count = Note.count
+    post notes_url, {params: {body: "This is a test note"}}
+    assert_response :redirect
+    assert_equal Note.count, note_count + 1
+  end
+
   test "notes#delete should delete note" do
     note = notes(:one)
     delete note_url(note.id)
