@@ -12,11 +12,13 @@
 class Note < ApplicationRecord
   before_validation :assign_codename
 
-  validates_presence_of :codename
   validates_presence_of :body
+  validates_presence_of :codename
+
+  validates_uniqueness_of :codename
 
   def assign_codename
-    return unless codename.blank?
+    return unless self.codename.blank?
     self.codename = Haikunator.haikunate
   end
 end
