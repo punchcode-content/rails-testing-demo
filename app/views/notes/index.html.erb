@@ -1,0 +1,11 @@
+<header>
+  <h1>Notes</h1>
+</header>
+
+<div class="row notes">
+  <% @notes.each do |note| %>
+    <div class="note col-lg-3">
+      <%= note.body %>
+    </div>
+  <% end %>
+</div>

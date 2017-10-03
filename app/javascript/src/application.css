@@ -1,0 +1,11 @@
+.notes {
+
+}
+
+.note {
+  border: 1px solid #CCC;
+  background-color: #FFFC7F;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem;
+  min-height: 10rem;
+}

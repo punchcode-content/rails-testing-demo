@@ -8,5 +8,6 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import "shoelace-css/source/css/shoelace.css";
+import "../src/application.css";
 
 console.log('Hello World from Webpacker')
