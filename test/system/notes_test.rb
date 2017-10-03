@@ -1,6 +1,8 @@
 require "application_system_test_case"
+require "capybara/poltergeist"
 
 class NotesTest < ApplicationSystemTestCase
+  driven_by :poltergeist
 
   # test "visiting the index" do
   #   visit notes_url
