@@ -17,4 +17,11 @@ class NoteTest < ActiveSupport::TestCase
     assert !note.valid?
     assert !note.errors[:body].empty?
   end
+
+  test "automatically assigns a codename" do
+    note = Note.new(body: "test")
+    assert note.codename.nil?
+    assert note.valid?
+    assert !note.codename.nil?, "expected a codename to be assigned"
+  end
 end
