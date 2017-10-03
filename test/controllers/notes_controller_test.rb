@@ -19,7 +19,7 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
 
   test "notes#create should create a note" do
     note_count = Note.count
-    post notes_url, {params: {body: "This is a test note"}}
+    post notes_url, {params: {note: {body: "This is a test note"}}}
     assert_response :redirect
     assert_equal Note.count, note_count + 1
   end

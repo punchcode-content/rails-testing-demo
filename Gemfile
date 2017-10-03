@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'webpacker', '~> 3.0'
 
 gem 'haikunator'
+gem 'simple_form'
 
 
 group :development, :test do
