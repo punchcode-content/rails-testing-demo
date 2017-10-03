@@ -10,5 +10,13 @@
 #
 
 class Note < ApplicationRecord
+  before_validation :assign_codename
+
+  validates_presence_of :codename
   validates_presence_of :body
+
+  def assign_codename
+    return unless codename.blank?
+    self.codename = Haikunator.haikunate
+  end
 end
