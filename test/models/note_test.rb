@@ -15,6 +15,6 @@ class NoteTest < ActiveSupport::TestCase
   test "requires a body" do
     note = Note.new(body: nil)
     assert !note.valid?
-    assert note.errors[:body]
+    assert !note.errors[:body].empty?
   end
 end
