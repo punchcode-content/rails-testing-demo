@@ -1,7 +1,11 @@
+<%= link_to "Create note", new_note_url, class: "button" %>
 <div class="row notes">
   <% @notes.each do |note| %>
-    <div class="note col-lg-3">
+    <div class="note col-lg-3" id="note-<%= note.id %>">
       <%= note.body %>
+      <%= form_tag(note, method: "delete") do %>
+      <button class="button-xs button-danger delete-button" type="submit" data-note-id="<%= note.id %>">Delete</button>
+      <% end %>
     </div>
   <% end %>
 </div>

@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  skip_before_action :verify_authenticity_token, :only => [:destroy]
+
   def index
     @notes = Note.all
   end
@@ -19,7 +21,11 @@ class NotesController < ApplicationController
   def destroy
     @note = Note.find(params[:id])
     @note.destroy
-    redirect_to notes_url
+
+    respond_to do |format|
+      format.html { redirect_to notes_url }
+      format.json { render json: {"success": true}}
+    end
   end
 
   private

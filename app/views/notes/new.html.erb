@@ -1,10 +1,5 @@
 <h2>Create new note</h2>
 <%= form_for @note do |form| %>
-  <ul>
-  <% @note.errors.each do |err| %>
-    <li><%= err %></li>
-  <% end %>
-  </ul>
   <p>
     <%= form.label :body %>
     <%= form.text_area :body %>

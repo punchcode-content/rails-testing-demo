@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
+    "jquery": "^3.2.1",
     "shoelace-css": "^1.0.0-beta23"
   },
   "devDependencies": {

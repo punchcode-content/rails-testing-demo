@@ -30,4 +30,12 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_equal Note.where(id: note.id).count, 0
   end
+
+  test "notes#delete should delete note with AJAX" do
+    note = notes(:one)
+    delete note_url(note.id), xhr: true
+    assert_response :success
+    assert_equal Note.where(id: note.id).count, 0
+  end
+
 end

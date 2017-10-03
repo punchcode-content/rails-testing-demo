@@ -9,5 +9,22 @@
 
 import "shoelace-css/source/css/shoelace.css";
 import "../src/application.css";
+import $ from 'jquery';
 
-console.log('Hello World from Webpacker')
+$(window).on('load', function () {
+  $('.delete-button').on('click', function (event) {
+    event.preventDefault();
+
+    var id = $(this).data('note-id');
+
+    $.ajax({
+      type: "DELETE",
+      url: '/notes/' + id,
+      contentType: "application/json",
+      success: function (data) {
+        $("#note-" + id).remove();
+      },
+      dataType: 'json'
+    });
+  })  
+})
